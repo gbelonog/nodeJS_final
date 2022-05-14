@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+ head
+   title Chat
+   link(rel="shortcat icon" href="/assets/favicon1.ico" type="image/x-icon")
+   script(src="assets/script.js")
+ body
+  include _partials/header.pug
+   h1 Chat
+   if login
+    h2.green some text
+include _partials/footer.pug
+ 

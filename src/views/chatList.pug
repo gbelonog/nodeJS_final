@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+ head
+   title List of chats
+   link(rel="shortcat icon" href="/assets/favicon1.ico" type="image/x-icon")
+   script(src="assets/script.js")
+ body
+    include _partials/header.pug
+    h1 List of chats
+    
+    if login === 'true' 
+        p= login    
+    ul
+        each val in items
+            li= val 
+            if login  === 'true'
+                a(href='/chat') chat
+    include _partials/footer.pug
+
+
+
+   
