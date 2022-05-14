@@ -5,7 +5,6 @@ const { itemData } = require('../../../services');
 
 loginRouter.use(cookieParser());
 loginRouter.get('/login', (req, res) => {
-    //res.cookie('login', true, { httpOnly: true });
     res.render('login');
 });
 
@@ -20,12 +19,18 @@ loginRouter.post('/login', (req, res) => {
         const splitedBody = body.split('&');
         const login = splitedBody[0].replace('login=', '');
         const password = splitedBody[1].replace('password=', '');
-        await itemData.setItem({
-            login: login,
-            password: password
-        })
-        res.cookie('login', true, { httpOnly: true });
-        res.redirect('/');
+        let items = await itemData.getItem();
+        console.log('items in login',items);
+        const loginsArray = items.map(e => e.login == login);
+        console.log('loginsArray',loginsArray);
+        const result = loginsArray.findIndex ((e) => e == true);
+        console.log('result', result);
+        if(result > -1){
+            res.cookie('login', true, { httpOnly: true });
+            res.redirect('/'); 
+        } else {
+            res.redirect('/login');
+        }        
     })
 });
 module.exports = loginRouter;

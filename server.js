@@ -3,8 +3,8 @@ const config = require('config');
 const path = require('path');
 // const cookieParser = require('cookie-parser');
 // const { itemData } = require('./services');
-const fs = require('fs');
-const pug = require('pug');
+//const fs = require('fs');
+//const pug = require('pug');
 const { appRouter } = require('./src');
 const app = express(); 
 

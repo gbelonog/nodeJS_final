@@ -5,7 +5,7 @@ const logger = require('../utils/logger');
 class ItemDataProvider {
     constructor() {
         this.cash = null;
-        this.dataFile = path.join(__dirname, '..', './todoData.json');
+        this.dataFile = path.join(__dirname, '..', './chatList.json');
     };
 
     async getItem() {
@@ -20,14 +20,14 @@ class ItemDataProvider {
             return this.cash;
         }
 
-        let todoReader = fs.createReadStream(this.dataFile, { encoding: 'utf8' });
+        let reader = fs.createReadStream(this.dataFile, { encoding: 'utf8' });
         const data = await new Promise((res, rej) => {
             let result = '';
-            todoReader.on('data', data => {
+            reader.on('data', data => {
                 result += data;
             });
-            todoReader.on('end', () => { res(result) });
-            todoReader.on('error', rej);
+            reader.on('end', () => { res(result) });
+            reader.on('error', rej);
         });
         this.cash = JSON.parse(data);
         return this.cash;
