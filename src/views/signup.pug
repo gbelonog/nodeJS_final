@@ -11,20 +11,14 @@ body
     p
       | userName: 
       input(type="userName" name="userName" placeholder="")
-      |          password: 
-      input(type='text', name='password', value='')
+      | email: 
+      input(type='email', name='email', value='')
+      | birthday: 
+      input(type="date" name="birthday" placeholder="")
+      | password: 
+      input(type='password', name='password', value='')
+      | confirm password: 
+      input(type='password', name='confirmPassword', value='')
+
     input(type='submit', value='Submit')
 include _partials/footer.pug
-
-    //- form(action="/signup" method="POST")
-    //- p Email:
-    //-   input(type="email" name="email" placeholder="Input email")
-    //- p User name:
-    //-   input(type="text" name="userName" placeholder="Input user name")
-    //- p Birthday:
-    //-   input(type="date" name="birthday" placeholder="Input birthday")
-    //- p Password:
-    //-   input(type="password" name="password" placeholder="Input password")
-    //- p Confirm password:
-    //-   input(type="password" name="confirmPassword" placeholder="Confirm password")
-    //- input(type='submit', value='Submit')

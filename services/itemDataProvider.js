@@ -9,7 +9,6 @@ class ItemDataProvider {
     };
 
     async getItem() {
-        logger.info('getItem');
         if (this.cash) {
             return this.cash;
         };

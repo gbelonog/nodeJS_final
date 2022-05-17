@@ -11,5 +11,4 @@ appRouter.get('/logout', (req, res) => {
     res.cookie('login', false, { httpOnly: true });
     res.redirect('/'); 
 });
-
 module.exports = appRouter;
