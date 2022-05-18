@@ -1,2 +1,3 @@
 const appRouter = require('./app');
-module.exports = { appRouter };
+const apiRouter = require('./api');
+module.exports = { appRouter, apiRouter };
