@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+ head
+   title Signup page
+   link(rel="shortcat icon" href="/assets/favicon1.ico" type="image/x-icon")
+   script(src="assets/script.js")
+body
+  include _partials/header.pug
+  p= error
+  form(action='/signup', method='POST')
+    p
+      | userName: 
+      input(type="userName" name="userName" placeholder="")
+      | email: 
+      input(type='email', name='email', value='')
+      | birthday: 
+      input(type="date" name="birthday" placeholder="")
+      | password: 
+      input(type='password', name='password', value='')
+      | confirm password: 
+      input(type='password', name='confirmPassword', value='')
+
+    input(type='submit', value='Submit')
+include _partials/footer.pug
