@@ -10,7 +10,7 @@ loginRouter.get('/login', (req, res) => {
 loginRouter.post('/login', async(req, res) => {
     let items = await itemData.getItem();
     const loginsArray = items.map(e => e.login == req.body.login);
-    const result = loginsArray.findIndex ((e) => e == true);
+    const result = loginsArray.findIndex((e) => {if(e) return e});
     if(result > -1){
         res.cookie('login', true, { httpOnly: true });
         res.redirect('/'); 
